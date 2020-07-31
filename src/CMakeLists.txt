@@ -19,13 +19,13 @@ if((NOT MATPLOTLIBCPP_INCLUDE_DIR) OR (NOT EXISTS ${MATPLOTLIBCPP_INCLUDE_DIR}))
         CACHE PATH "matplotlib-cpp include directory")
 
     # also install it
-    install(DIRECTORY ${MATPLOTLIBCPP_INCLUDE_DIR} DESTINATION ${some_dest})
+    #install(DIRECTORY ${MATPLOTLIBCPP_INCLUDE_DIR} DESTINATION ${some_dest})
 
     # for convenience setup a target
-    add_library(matplotlib-cpp INTERFACE)
-    target_include_directories(matplotlib-cpp INTERFACE
-                               $<BUILD_INTERFACE:${MATPLOTLIBCPP_INCLUDE_DIR}>
-                               $<INSTALL_INTERFACE:${some_dest}>)
+    #add_library(matplotlib-cpp INTERFACE)
+    #target_include_directories(matplotlib-cpp INTERFACE
+    #                           $<BUILD_INTERFACE:${MATPLOTLIBCPP_INCLUDE_DIR}>
+    #                           $<INSTALL_INTERFACE:${some_dest}>)
 
     # need to export target as well
     install(TARGETS matplotlib-cpp EXPORT my_export_set DESTINATION ${some_dest})
