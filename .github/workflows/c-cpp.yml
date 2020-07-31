@@ -14,7 +14,7 @@ jobs:
     - name: dependencies
       run: |
         sudo apt update
-        sudo apt install libcppunit-dev
+        sudo apt install libcppunit-dev pkg-config
     - name: run-cmake
       uses: lukka/run-cmake@v2.5
       with:
