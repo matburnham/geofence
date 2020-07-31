@@ -1,0 +1,33 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: |
+        sudo apt update
+        sudo apt install libcppunit-dev
+    - name: run-cmake
+      uses: lukka/run-cmake@v2.5
+      with:
+        buildDirectory: '${{ runner.workspace }}/build'
+    - name: run-cmake-tests
+      uses: lukka/run-cmake@v2.5
+      with:
+        buildDirectory: '${{ runner.workspace }}/build'
+        buildWithCMakeArgs: --target test
+    - name: Generate plot
+      run: plot_test
+    - name: Store binaries
+      uses: actions/upload-artifact@v2
+      with:
+        name: out.png
+        path: '${{ runner.workspace }}/build/out.png*'
