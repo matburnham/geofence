@@ -28,7 +28,7 @@ if((NOT MATPLOTLIBCPP_INCLUDE_DIR) OR (NOT EXISTS ${MATPLOTLIBCPP_INCLUDE_DIR}))
     #                           $<INSTALL_INTERFACE:${some_dest}>)
 
     # need to export target as well
-    install(TARGETS matplotlib-cpp EXPORT my_export_set DESTINATION ${some_dest})
+    #install(TARGETS matplotlib-cpp EXPORT my_export_set DESTINATION ${some_dest})
 else()
     # see above, setup target as well
 endif()
