@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.7)
+project(GeoFence_Vis)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(GEOFENCE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/lib)
+
+ADD_SUBDIRECTORY( src )
+ADD_SUBDIRECTORY( lib )
+
+include(CTest)
+ADD_SUBDIRECTORY( test )
